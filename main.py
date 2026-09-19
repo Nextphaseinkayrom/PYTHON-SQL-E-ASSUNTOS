@@ -17,3 +17,6 @@ contas = cursor.fetchall()
 print(contas)
 
 conexao.commit()
+
+# O programa registra o nome escolhido na area de cursor execute INSERT INTO variavel. . 
+# Cadastrando o nome escolhido dentro do programa em si. .
