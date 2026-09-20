@@ -18,5 +18,8 @@ print(contas)
 
 conexao.commit()
 
-# O programa registra o nome escolhido na area de cursor execute INSERT INTO variavel. . 
-# Cadastrando o nome escolhido dentro do programa em si. .
+# O programa registra o nome escolhido na área de cursor execute INSERT INTO variavel. . 
+# Cadastrando o nome escolhido pelo programador. .
+
+# Próxima atividade pendente. . 
+# Cadastro com input(".")

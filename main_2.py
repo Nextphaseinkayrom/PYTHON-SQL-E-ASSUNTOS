@@ -1,19 +1,20 @@
+# Objetivo cadastrar algum nome ou idade com Input(".")
+# Pendente. . .
 import sqlite3
 
-conexao = sqlite3.connect(":memory:")
+conexao = sqlite3.connect("banco.db")
 cursor = conexao.cursor()
 
 cursor.execute("""
-       CREATE TABLE pessoa(
+       CREATE TABLE IF NOT EXISTS variavel(
+       id NOT NULL INTEGER,
        nome TEXT
-       
-       )""")
-nome = input("Nome: ")
-cursor.execute(
-       "INSERT INTO pessoa (nome) VALUES (?)")
-cursor.execute("SELECT * FROM pessoa")
+            )""")
 
-resultado = cursor.fetchall()
+cursor.execute("INSERT variavel(kayrom) VALUES (?)")
+
+cursor.fetchall()
+
+resultado = cursor.commit()
 
 print(resultado)
-
