@@ -1,9 +1,9 @@
 import sqlite3
 
-conexao = sqlite3.connect("banco.db")
+conexao = sqlite3.connect("bank.db")
 cursor = conexao.cursor()
 
-cursor.execute("""CREATE TABLE IF NOT EXISTS variavel (
+cursor.execute("""CREATE TABLE IF NOT EXISTS infor (
     id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     titular TEXT NOT NULL, 
     saldo FLOAT NOT NULL
@@ -12,7 +12,7 @@ cursor.execute("""
        INSERT INTO variavel
        (titular, saldo) VALUES ('titular', '500') """)
 
-cursor.execute("SELECT * FROM variavel")
+cursor.execute("SELECT * FROM infor")
 contas = cursor.fetchall()
 print(contas)
 
