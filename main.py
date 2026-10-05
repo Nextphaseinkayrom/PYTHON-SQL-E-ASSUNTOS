@@ -1,25 +1,46 @@
 import sqlite3
 
-conexao = sqlite3.connect("bank.db")
-cursor = conexao.cursor()
 
-cursor.execute("""CREATE TABLE IF NOT EXISTS infor (
-    id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    titular TEXT NOT NULL, 
-    saldo FLOAT NOT NULL
-        )""")
-cursor.execute("""
-       INSERT INTO variavel
-       (titular, saldo) VALUES ('titular', '500') """)
 
-cursor.execute("SELECT * FROM infor")
-contas = cursor.fetchall()
-print(contas)
+#Oque é necessário fazer de primeira? E de segunda?
+# Primeiro precisa Fazer com que o programa NÃO ACEITE EMAIL REPETIDO
+# O nome é aceitável mais o email caso seja repetido, recuse e mande a mensagem
+# "Olha não pode por que repetiu"
 
-conexao.commit()
 
-# O programa registra o nome escolhido na área de cursor execute INSERT INTO variavel. . 
-# Cadastrando o nome escolhido pelo programador. .
+def func():
+ conexao = sqlite3.connect("bank.db")
+ cursor = conexao.cursor()   
+ 
+ cursor.execute("""
+      CREATE TABLE IF NOT EXISTS variavel (
+      id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+      nome TEXT,
+      email TEXT UNIQUE
+      )
+      """)
 
-# Próxima atividade pendente. . 
-# Cadastro com input(".")
+ nome_p = str(input("Digite seu Nome: "))
+ email_p = input("Digite seu Email: ")
+
+
+ conexao.commit()
+
+ if "@gmail.com" in email_p:
+  try:
+   cursor.execute("INSERT INTO variavel (nome, email) VALUES (?,?)",
+               (nome_p, email_p,))
+   resultado = cursor.fetchall()
+   for cada in resultado:
+    nome, email = resultado
+    print("""
+         Nome da pessoa {nome}
+         Email da pessoa {email}""")
+   print("Cadastrado")
+   conexao.commit()
+  except sqlite3.IntegrityError:
+   print("Ponha outro Email.")
+
+ else:
+    print("Onde está a báse do Email?")
+
