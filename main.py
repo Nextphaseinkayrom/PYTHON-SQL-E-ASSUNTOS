@@ -1,14 +1,10 @@
-import sqlite3
-
-
-
 #Oque é necessário fazer de primeira? E de segunda?
-# Primeiro precisa Fazer com que o programa NÃO ACEITE EMAIL REPETIDO
+# Primeiro precisa Fazer com que o programa NÃO ACEITE email REPETIDO
 # O nome é aceitável mais o email caso seja repetido, recuse e mande a mensagem
 # "Olha não pode por que repetiu"
-
-
+# E mostrar os resultados.
 def func():
+ import sqlite3
  conexao = sqlite3.connect("bank.db")
  cursor = conexao.cursor()   
  
@@ -30,17 +26,12 @@ def func():
   try:
    cursor.execute("INSERT INTO variavel (nome, email) VALUES (?,?)",
                (nome_p, email_p,))
-   resultado = cursor.fetchall()
-   for cada in resultado:
-    nome, email = resultado
-    print("""
-         Nome da pessoa {nome}
-         Email da pessoa {email}""")
-   print("Cadastrado")
    conexao.commit()
+   print("Cadastrado")
   except sqlite3.IntegrityError:
    print("Ponha outro Email.")
 
  else:
     print("Onde está a báse do Email?")
 
+func()

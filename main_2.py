@@ -19,6 +19,7 @@ def funcao():
       2 -- EXIBIÇÃO DE USER'S
       3 -- LOCALIZADOR DE ID'S(DESENVOLVIMENTO)
       4 -- MODIFICADOR
+      5 -- DELETADOR
       
       Sua Resposta: """))
        
@@ -94,7 +95,7 @@ def funcao():
        pg_r = int(input("Qual o ID exáto da pessoa?\nNumeros inteiros apenas. "))
        cursor.execute(
        "SELECT nome FROM variavel WHERE id = ?",
-       (modificador,)
+       (pg_r,)
        )
        
        resultado = cursor.fetchone()
@@ -129,7 +130,7 @@ def funcao():
      resul_2 = cursor.fetchall()
      for cada in resul_2:
       id, nome, idade = cada
-     if resul_2 == None:
+     if resul_2 == []:
       print("N/R")
 
      else:
@@ -146,8 +147,8 @@ Sua resposta: """))
       if pg_c == 1:
         print("Removendo . . .")
         cursor.execute(
-          "DELETE FROM variavel WHERE id = ?",
-          (pg_c,))
+          "DELETE FROM variavel WHERE nome = ?",
+            (pg_d,))
         
         conexao.commit()
         
