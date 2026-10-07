@@ -65,12 +65,13 @@ def func():
     print(resultado)
     pg_c = int(input("Deseja alterar mesmo?"))
     if pg_c == 1 :
-     pg_c_2 = input("Qual seria o nome email da pessoa?")
+     pg_c_2 = input("Qual seria o email da pessoa?")
      if "@gmail.com" in pg_c_2:
-      cursor.execute("UPDATE variavel SET email = ? WHERE id = ? ",
+      cursor.execute("UPDATE variavel SET email = ? WHERE email = ? ",
                      (pg_c_2, pg_em))
 
       conexao.commit()
+
 
 
 
