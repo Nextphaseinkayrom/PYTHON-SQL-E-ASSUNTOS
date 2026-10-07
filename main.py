@@ -73,6 +73,24 @@ def func():
       conexao.commit()
 
 
+  elif menu == 4:
+      pg_d = input("Quem deseja remover?")
+      if pg_d:
+       cursor.execute("SELECT nome, email FROM variavel WHERE email = ?",
+                      (pg_d,))
+       delete_r = cursor.fetchall()
+       for cada in delete_r:
+        nome, email = cada
+        print(f"""
+       NOME: {nome}
+       EMAIL: {email}""")
+        pg_d_c = int(input("Deseja remover? \n1 = Sim\n2 = Não"))
+        if pg_d_c == 1:
+         cursor.execute("DELETE FROM variavel WHERE id = ?",
+                       (pg_d,))
+
+       
+
 
 
 func()
