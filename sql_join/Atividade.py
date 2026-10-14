@@ -84,10 +84,16 @@ def func():
         print(f"""
        NOME: {nome}
        EMAIL: {email}""")
-        pg_d_c = int(input("Deseja remover? \n1 = Sim\n2 = Não"))
+        pg_d_c = int(input("Deseja remover? \n1 = Sim\n2 = Não\nR: "))
         if pg_d_c == 1:
-         cursor.execute("DELETE FROM variavel WHERE id = ?",
+         cursor.execute("DELETE FROM variavel WHERE email = ?",
                        (pg_d,))
+
+         conexao.commit()
+
+  else:
+      print("Saindo. .")
+      break
 
        
 
