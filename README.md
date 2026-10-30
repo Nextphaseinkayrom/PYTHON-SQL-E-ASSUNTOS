@@ -1,5 +1,8 @@
 Exercicios de Python
-Envolvendo Banco de dados
-1 -- SQLAlchemy
-2 -- PostgreSql
-3 -- Pouco de SQLite3
+Envolvendo \n
+
+---Banco de dados---
+\n
+1 -- SQLAlchemy\n
+2 -- PostgreSql\n
+3 -- Pouco de SQLite3\n
