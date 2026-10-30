@@ -159,7 +159,7 @@ def main():
 
             if escolha == 0:
                 break
-            if escolha in OPCOES:
+            if escolha in OPCOES:   
                 _, funcao = OPCOES[escolha]
                 funcao(conexao)
             else:

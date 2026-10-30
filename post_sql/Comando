@@ -1,0 +1,14 @@
+# 1. Instalar cliente e servidor
+sudo dnf install postgresql postgresql-server
+
+# 2. Inicializar o cluster — somente se ainda não existir
+sudo postgresql-setup --initdb --unit postgresql
+
+# 3. Iniciar o serviço e habilitar o início automático
+sudo systemctl enable --now postgresql
+
+# 4. Verificar o serviço
+sudo systemctl status postgresql
+
+
+# Os comandos acima são a inicialização do PostgreSQL.
