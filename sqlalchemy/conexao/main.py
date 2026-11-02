@@ -16,7 +16,6 @@ def criar():
     idade: Mapped[int] = mapped_column(Integer, nullable=True)
  Base.metadata.create_all(engine)
 
-
 #Criação de nome e idade do usuario (CREATE)
 # nome = str(input("Digite o Nome: "))
 # idade = int(input("Digite a Idade: "))
@@ -27,7 +26,7 @@ def criar():
 #Read Feito.
  print("PASSO 1 - Localização de ID 1/3 (READ)")
  id = int(input("Digite o id da pessoa: "))
- with SessionLocal() as sessao:    
+ with SessionLocal() as sessao:
    usuarios = sessao.scalars(select(Usuarios).where(Usuarios.id == id)).first()
    if usuarios is None:
     print("Sem registro")
